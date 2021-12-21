@@ -13,6 +13,7 @@
                 @csrf
                 <input class="mb-3 form-control" type="text" name="title" placeholder="Inserisci il titolo">
                 <textarea class="mb-3 form-control" name="description" id="" cols="30" rows="10"></textarea>
+                <input class="mb-3 form-control" type="text" name="author" placeholder="Inserisci il nome">
                 <button type="submit" class="btn btn-warning">Invia</button>
             </form>
         </div>

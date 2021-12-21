@@ -19,8 +19,7 @@
               <h5 class="card-title">{{$article->title}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">{{$article->description}}</p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+              <a href="#" class="card-link">{{$article->author}}</a>
             </div>
           </div>
           

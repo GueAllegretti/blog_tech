@@ -16,7 +16,8 @@ class ArticleController extends Controller
         //dd($article);
         $article = Article::create([
             'title' => $request->title,
-            'description' => $request->description
+            'description' => $request->description,
+            'author' => $request->author
         ]);
         return redirect(route('index'))->with('message', 'Hai inserito correttamente un articolo');
     }

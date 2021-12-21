@@ -15,7 +15,6 @@ a {
 .card {
     width: 90%;
     box-shadow: 5px 5px 0 0 whitesmoke;
-    border: solid 1px black;
 }
 
 .card:hover {
