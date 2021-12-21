@@ -1,0 +1,23 @@
+:root {
+    --primary-color: white;
+    --secondary-color: black;
+}
+
+body {
+    font-family:  'Oswald', sans-serif;
+    background-color: rgb(230, 227, 227);
+}
+
+a {
+    text-decoration: none;
+}
+
+.card {
+    width: 90%;
+    box-shadow: 5px 5px 0 0 whitesmoke;
+    border: solid 1px black;
+}
+
+.card:hover {
+    box-shadow: none;
+}
