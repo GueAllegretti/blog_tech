@@ -15,11 +15,18 @@
       <div class="col-12 col-md-3 d-flex justify-content-around">
         
         <div class="card m-3">
+
+          @if (!$article->image)
+            <img src="/image/default.jpg" alt="immagine di default">
+          @else
+              <img src="{{Storage::url($article->image)}}" alt="immagine dell'alticolo">
+          @endif
+
             <div class="card-body">
               <h5 class="card-title">{{$article->title}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
               <p class="card-text">{{$article->description}}</p>
-              <a href="#" class="card-link">{{$article->author}}</a>
+              <a href="#" class="card-link"></a>
             </div>
           </div>
           

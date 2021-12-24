@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -11,14 +12,22 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
-    public function store(Request $request){
+    public function store(ArticleRequest $request){
         
-        //dd($article);
-        $article = Article::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'author' => $request->author
-        ]);
+        if($request->image){
+            //dd($article);
+            $article = Article::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => $request->file('image')->store('public/image'),
+            ]);
+        }else {
+            $article = Article::create([
+                'title' => $request->title,
+                'description' => $request->description,
+            ]);
+        }
+        //dd($request->all());
         return redirect(route('index'))->with('message', 'Hai inserito correttamente un articolo');
     }
 
