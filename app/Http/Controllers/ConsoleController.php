@@ -14,7 +14,9 @@ class ConsoleController extends Controller
      */
     public function index()
     {
-        //
+        $consoles = Console::all();
+
+        return view('console.index', compact('consoles'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ConsoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('console.create');
     }
 
     /**
@@ -35,7 +37,12 @@ class ConsoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $console = Console::create([
+            'name' => $request->name,
+            'brand' => $request->brand,
+        ]);
+
+        return redirect(route('console.index'))->with('message', 'Hai inserito correttamente una console');
     }
 
     /**
@@ -46,7 +53,7 @@ class ConsoleController extends Controller
      */
     public function show(Console $console)
     {
-        //
+        return view('console.show', compact('console'));
     }
 
     /**

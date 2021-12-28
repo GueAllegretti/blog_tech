@@ -10,10 +10,16 @@
             <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('article.create')}}">Inserisci</a>
+            <a class="nav-link" href="{{route('article.create')}}">Inserisci articolo</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('article.index')}}">Articoli</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('console.create')}}">Inserisci console</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('console.index')}}">Console</a>
           </li>
           @auth
           <li class="nav-item dropdown">
