@@ -43,4 +43,13 @@ class ArticleController extends Controller
         $articles = Article::all();
         return view('article.index', compact('articles'));
     }
+
+    public function edit(Article $article)
+    {
+        if($article->user->id != Auth::id()){
+            return redirect(route('article.index'))->with('message', 'Non hai i permessi per modificare questo articolo');
+            }
+            
+        return view('article.edit', compact('article'));
+    }
 }

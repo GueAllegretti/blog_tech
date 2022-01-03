@@ -1,5 +1,13 @@
 <x-layout>
+  @if (session('message'))
+        
+  <div class="alert alert-light">
+            {{session('message')}}
+          </div>
+          
+            
 
+  @endif
   <div class="container-fluid py-5">
     <div class="row justify-content-center align-items-center">
       <div class="col-12 col-md-6 text-center">
@@ -26,10 +34,13 @@
               <h5 class="card-title">{{$article->title}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">{{$article->user->name}}</h6>
               <p class="card-text">{{$article->description}}</p>
-              <a href="#" class="card-link"></a>
+
+              @if($article->user->id == Auth::id())
+              <a href="{{route('article.edit', compact('article'))}}" class="btn btn-warning">Modifica
+              </a>
+              @endif
             </div>
           </div>
-          
         </div>
         @endforeach
 
