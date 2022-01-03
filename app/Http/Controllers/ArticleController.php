@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
@@ -25,11 +26,13 @@ class ArticleController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'image' => $request->file('image')->store('public/image'),
+                'user_id' => Auth::user()->id,
             ]);
         }else {
             $article = Article::create([
                 'title' => $request->title,
                 'description' => $request->description,
+                'user_id' => Auth::user()->id,
             ]);
         }
         //dd($request->all());

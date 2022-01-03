@@ -68,7 +68,7 @@ class ConsoleController extends Controller
      */
     public function edit(Console $console)
     {
-        //
+        return view('console.edit', compact('console'));
     }
 
     /**
@@ -80,7 +80,14 @@ class ConsoleController extends Controller
      */
     public function update(Request $request, Console $console)
     {
-        //
+        //dd($request->all(), $console);
+        $console->name = $request->name;
+        $console->brand = $request->brand;
+
+        $console->save();
+
+        return redirect (route('console.index'));
+
     }
 
     /**
@@ -91,6 +98,8 @@ class ConsoleController extends Controller
      */
     public function destroy(Console $console)
     {
-        //
+        //dd($console);
+        $console->delete();
+        return redirect(route('console.index'));
     }
 }
